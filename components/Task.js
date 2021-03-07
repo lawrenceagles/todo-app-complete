@@ -4,11 +4,11 @@ import styled from "styled-components/native";
 const Container = styled.View`
     background-color: #FFFFFF;
     padding: 15px;
-    borderRadius: 10px;
+    border-radius: 10px;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 20px
+    margin-bottom: 20px;
 `;
 
 const TaskDesc = styled.View`

@@ -43,9 +43,16 @@ const TaskInput = styled.TextInput`
 `;
 
 const TouchableOpacity = styled.TouchableOpacity``;
+
 const AddSign = styled.Text``;
-const ErrorMessageWrapper = styled.View``;
-const ErrorMessage = styled.Text``;
+
+const ErrorMessageWrapper = styled.View`
+	margin-top: 50%;
+`;
+const ErrorMessage = styled.Text`
+	text-align: center;
+	font-size: 16px;
+`;
 
 const AddBtn = styled.View`
 	width: 60px;
