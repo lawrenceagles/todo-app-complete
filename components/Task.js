@@ -35,8 +35,8 @@ const Disc = styled.View`
   width: 12px;
   height: 12px;
   border-color: #14eb8c;
-  border-width: 2;
-  border-radius: 5;
+  border-width: 2px;
+  border-radius: 5px;
 `;
 
 
