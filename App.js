@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Keyboard, KeyboardAvoidingView, TextInput, Platform } from 'react-native';
+import { Keyboard, Platform } from 'react-native';
 import Task from './components/Task'
 import styled from "styled-components/native";
 
@@ -70,6 +70,9 @@ const App = () => {
   const [task, setTask] = useState(null);
   const [tasks, setTasks] = useState([])
   const handleAddTask = () => {
+    if (!task) {
+      return;
+    }
     Keyboard.dismiss();
     setTasks([...tasks, task]) // using es6 spread operator.
     setTask(null)
@@ -84,7 +87,7 @@ const App = () => {
   return (
     <Container>
       <Wrapper>
-        <Title>Today's Task</Title>
+        <Title>Today's Tasks</Title>
         <TaskList>
           {/* We could write the code directly but we want to create a resuable component here! */}
           {/* handle no task */}
