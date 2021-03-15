@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from "styled-components/native";
 
-const Container = styled.View`
+const Container = styled.TouchableOpacity`
     background-color: #FFFFFF;
     padding: 15px;
     border-radius: 10px;
@@ -40,9 +40,9 @@ const Disc = styled.View`
 `;
 
 
-const Task = ({task}) => {
+const Task = ({ task, handleDeleteTask }) => { 
   return (
-    <Container>
+    <Container onPress={handleDeleteTask}>
       <TaskDesc>
         <Square />
         <Desc>{task}</Desc>

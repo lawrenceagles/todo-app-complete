@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Keyboard, KeyboardAvoidingView, TextInput, Platform } from 'react-native';
+import { Keyboard, KeyboardAvoidingView, FlatList, Platform } from 'react-native';
 import Task from './components/Task'
 import styled from "styled-components/native";
 
@@ -63,15 +63,16 @@ const AddBtn = styled.View`
 	border-bottom-right-radius: 10px
 	justify-content: center;
 	align-items: center;
-	border-width: 1px;
+	border-width: 1px; 
 `;
 
 const App = () => {
   const [task, setTask] = useState(null);
   const [tasks, setTasks] = useState([])
+
   const handleAddTask = () => {
     Keyboard.dismiss();
-    setTasks([...tasks, task]) // using es6 spread operator.
+    setTasks([...tasks, { id: Math.floor((Math.random() * 10) + 1), todo:task }]) // using es6 spread operator.
     setTask(null)
   }
 
@@ -85,18 +86,18 @@ const App = () => {
     <Container>
       <Wrapper>
         <Title>Today's Task</Title>
-        <TaskList>
-          {/* We could write the code directly but we want to create a resuable component here! */}
           {/* handle no task */}
           {tasks && tasks.length === 0 && (<ErrorMessageWrapper><ErrorMessage> No Task Found. Add Task!</ErrorMessage></ErrorMessageWrapper>)}
+        <TaskList>
           {/* handle tasks display */}
-          {tasks && tasks.map((task, index) => (
-            <TouchableOpacity onPress={()=> handleDeleteTask(index)}>
-              <Task key={index} task={task} />
-            </TouchableOpacity>
-          ))}
+          <FlatList
+            data={tasks}
+            renderItem={({item}) => ( <Task key={item.id} task={item.todo} handleDeleteTask={() => handleDeleteTask(task.id)} /> )}
+            keyExtractor={(task) => task.id}
+          />
         </TaskList>
       </Wrapper>
+
       {/* This makes the keyboard to push the View upwards when it is displayed instead of covering it. */}
       <InputWrapper
         behavior={Platform.OS === "ios" ? "padding" : "height"}
