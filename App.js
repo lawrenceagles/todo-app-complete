@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Keyboard, KeyboardAvoidingView, FlatList, Platform } from 'react-native';
+import { Keyboard, FlatList, Platform } from 'react-native';
 import Task from './components/Task'
 import styled from "styled-components/native";
 
