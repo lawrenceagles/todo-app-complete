@@ -72,7 +72,7 @@ const App = () => {
 
   const handleAddTask = () => {
     Keyboard.dismiss();
-    setTasks([...tasks, { id: Math.floor((Math.random() * 10) + 1), todo:task }]) // using es6 spread operator.
+    setTasks([...tasks, task]) // using es6 spread operator.
     setTask(null)
   }
 
@@ -82,7 +82,7 @@ const App = () => {
     setTasks(currTask);
   }
 
-  return (
+  return ( 
     <Container>
       <Wrapper>
         <Title>Today's Task</Title>
@@ -92,8 +92,8 @@ const App = () => {
           {/* handle tasks display */}
           <FlatList
             data={tasks}
-            renderItem={({item}) => ( <Task key={item.id} task={item.todo} handleDeleteTask={() => handleDeleteTask(task.id)} /> )}
-            keyExtractor={(task) => task.id}
+            renderItem={({item, index}) => ( <Task key={index} task={item} handleDeleteTask={() => handleDeleteTask(index)} /> )}
+            keyExtractor={(task) => task}
           />
         </TaskList>
       </Wrapper>
