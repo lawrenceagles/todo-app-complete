@@ -71,6 +71,9 @@ const App = () => {
   const [tasks, setTasks] = useState([])
 
   const handleAddTask = () => {
+    if (!task) {
+      return;
+    }
     Keyboard.dismiss();
     setTasks([...tasks, task]) // using es6 spread operator.
     setTask(null)
