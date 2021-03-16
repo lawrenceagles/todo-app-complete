@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Keyboard, FlatList, Platform } from 'react-native';
+import { MaterialIcons } from '@expo/vector-icons';
 import Task from './components/Task'
 import styled from "styled-components/native";
 
@@ -113,7 +114,9 @@ const App = () => {
         />
           <TouchableOpacity onPress={() => handleAddTask()}>
             <AddBtn>
-              <AddSign>+</AddSign>
+              <AddSign>
+                <MaterialIcons name="add-task" size={24} color="black" />
+              </AddSign>
             </AddBtn>
           </TouchableOpacity>
       </InputWrapper>
