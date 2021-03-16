@@ -45,8 +45,6 @@ const TaskInput = styled.TextInput`
 
 const TouchableOpacity = styled.TouchableOpacity``;
 
-const AddSign = styled.Text``;
-
 const ErrorMessageWrapper = styled.View`
 	margin-top: 50%;
 `;
@@ -89,7 +87,7 @@ const App = () => {
   return ( 
     <Container>
       <Wrapper>
-        <Title>Today's Task</Title>
+        <Title>Today's Tasks</Title>
           {/* handle no task */}
           {tasks && tasks.length === 0 && (<ErrorMessageWrapper><ErrorMessage> No Task Found. Add Task!</ErrorMessage></ErrorMessageWrapper>)}
         <TaskList>
@@ -114,9 +112,7 @@ const App = () => {
         />
           <TouchableOpacity onPress={() => handleAddTask()}>
             <AddBtn>
-              <AddSign>
-                <MaterialIcons name="add-task" size={24} color="black" />
-              </AddSign>
+              <MaterialIcons name="add-task" size={24} color="black" />
             </AddBtn>
           </TouchableOpacity>
       </InputWrapper>
