@@ -39,7 +39,7 @@ const TaskInput = styled.TextInput`
 	background-color: #FFFFFF;
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px;
-	border-color: #14eb8c;
+	border-color: #28c72b;
 	width: 250px;
 `;
 
@@ -58,8 +58,8 @@ const ErrorMessage = styled.Text`
 const AddBtn = styled.View`
 	width: 60px;
 	height: 60px;
-	border-color: #14eb8c;
-	background-color: #14eb8c;
+	border-color: #28c72b;
+	background-color: #28c72b;
 	border-top-right-radius: 10px;
 	border-bottom-right-radius: 10px
 	justify-content: center;

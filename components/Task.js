@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from "styled-components/native";
+import { FontAwesome } from '@expo/vector-icons';
 
 const Container = styled.TouchableOpacity`
     background-color: #FFFFFF;
@@ -18,11 +19,6 @@ const TaskDesc = styled.View`
 `;
 
 const Square = styled.View`
-  width: 24px;
-  height: 24px;
-  background-color: #14eb8c;
-  opacity: 0.4;
-  border-radius: 5px;
   margin-right: 15px;
 `;
 
@@ -34,7 +30,7 @@ const Desc = styled.Text`
 const Disc = styled.View`
   width: 12px;
   height: 12px;
-  border-color: #14eb8c;
+  border-color: #28c72b;
   border-width: 2px;
   border-radius: 5px;
 `;
@@ -44,7 +40,9 @@ const Task = ({ task, handleDeleteTask }) => {
   return (
     <Container onPress={handleDeleteTask}>
       <TaskDesc>
-        <Square />
+        <Square>
+          <FontAwesome name="tasks" size={24} color="#156616" />
+        </Square>
         <Desc>{task}</Desc>
       </TaskDesc>
       <Disc />
