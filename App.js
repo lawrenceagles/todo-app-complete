@@ -14,6 +14,7 @@ const Wrapper = styled.View`
 	padding-top: 80px;
 	padding-left: 20px;
 	padding-right: 20px;
+  height: 78%;
 `;
 
 const Title = styled.Text`
