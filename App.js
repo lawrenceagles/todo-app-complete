@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Keyboard, Dimensions, Platform, View } from 'react-native';
+import { Keyboard, Dimensions, Platform } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import Task from './components/Task'
 import styled from "styled-components/native";
