@@ -23,7 +23,7 @@ const Title = styled.Text`
 `;
 
 const TaskList = styled.FlatList`
-  margin-bottom: 30px;
+  padding-top: 30px;
 `;
 
 const InputWrapper = styled.KeyboardAvoidingView`
@@ -96,7 +96,7 @@ const App = () => {
           <TaskList
             data={tasks}
             renderItem={({item, index}) => ( <Task key={index} task={item} handleDeleteTask={() => handleDeleteTask(index)} /> )}
-            keyExtractor={(task) => task}
+            keyExtractor={(task, index) => task + index}
             contentContainerStyle={{ height: screenHeight }}
           />
       </Wrapper>
