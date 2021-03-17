@@ -94,12 +94,12 @@ const App = () => {
           {/* handle no task */}
           {tasks && tasks.length === 0 && (<ErrorMessageWrapper><ErrorMessage> No Task Found. Add Task!</ErrorMessage></ErrorMessageWrapper>)}
           {/* handle tasks display */}
-          <TaskList
+          {tasks && tasks.length > 0 && (<TaskList
             data={tasks}
             renderItem={({item, index}) => ( <Task key={index} task={item} handleDeleteTask={() => handleDeleteTask(index)} /> )}
             keyExtractor={(task, index) => task + index}
             contentContainerStyle={{ height: screenHeight }}
-          />
+          />)}
       </Wrapper>
 
       {/* This makes the keyboard to push the View upwards when it is displayed instead of covering it. */}
