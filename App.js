@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Keyboard, FlatList, Platform } from 'react-native';
+import { Keyboard, Dimensions, Platform, View } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import Task from './components/Task'
 import styled from "styled-components/native";
@@ -22,8 +22,8 @@ const Title = styled.Text`
 	text-align: center;
 `;
 
-const TaskList = styled.View`
-	margin-top: 30px;
+const TaskList = styled.FlatList`
+  margin-bottom: 30px;
 `;
 
 const InputWrapper = styled.KeyboardAvoidingView`
@@ -35,7 +35,7 @@ const InputWrapper = styled.KeyboardAvoidingView`
 	align-items: center;
 `;
 const TaskInput = styled.TextInput`
-	padding:17px
+	padding:17px;
 	background-color: #FFFFFF;
 	border-top-left-radius: 10px;
 	border-bottom-left-radius: 10px;
@@ -59,11 +59,13 @@ const AddBtn = styled.View`
 	border-color: #28c72b;
 	background-color: #28c72b;
 	border-top-right-radius: 10px;
-	border-bottom-right-radius: 10px
+	border-bottom-right-radius: 10px;
 	justify-content: center;
 	align-items: center;
 	border-width: 1px; 
 `;
+
+const screenHeight = Dimensions.get('window').height;
 
 const App = () => {
   const [task, setTask] = useState(null);
@@ -90,14 +92,13 @@ const App = () => {
         <Title>Today's Tasks</Title>
           {/* handle no task */}
           {tasks && tasks.length === 0 && (<ErrorMessageWrapper><ErrorMessage> No Task Found. Add Task!</ErrorMessage></ErrorMessageWrapper>)}
-        <TaskList>
           {/* handle tasks display */}
-          <FlatList
+          <TaskList
             data={tasks}
             renderItem={({item, index}) => ( <Task key={index} task={item} handleDeleteTask={() => handleDeleteTask(index)} /> )}
             keyExtractor={(task) => task}
+            contentContainerStyle={{ height: screenHeight }}
           />
-        </TaskList>
       </Wrapper>
 
       {/* This makes the keyboard to push the View upwards when it is displayed instead of covering it. */}
