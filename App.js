@@ -54,7 +54,7 @@ const ErrorMessage = styled.Text`
 	font-size: 16px;
 `;
 
-const AddBtn = styled.View`
+const AddBtn = styled.TouchableOpacity`
 	width: 60px;
 	height: 60px;
 	border-color: #28c72b;
@@ -105,18 +105,16 @@ const App = () => {
       {/* This makes the keyboard to push the View upwards when it is displayed instead of covering it. */}
       <InputWrapper
         behavior={Platform.OS === "ios" ? "padding" : "height"}
-        keyboardVerticalOffset={Platform.OS === "ios" ? 20 : 0} // show why!!!
       >
         <TaskInput 
           placeholder={"Write your task"} 
           value={task} 
           onChangeText={text => setTask(text)} 
         />
-          <TouchableOpacity onPress={() => handleAddTask()}>
-            <AddBtn>
-              <MaterialIcons name="add-task" size={24} color="black" />
-            </AddBtn>
-          </TouchableOpacity>
+        
+        <AddBtn onPress={() => handleAddTask()}>
+          <MaterialIcons name="add-task" size={24} color="black" />
+        </AddBtn>
       </InputWrapper>
     </Container>
   );
